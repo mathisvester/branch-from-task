@@ -1,7 +1,7 @@
-import { Component, computed, model } from '@angular/core';
+import { Component, computed, inject, model, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { branchTypes } from './branch-types';
-import { ClipboardModule } from '@angular/cdk/clipboard';
+import { Clipboard, ClipboardModule } from '@angular/cdk/clipboard';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +10,23 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  protected readonly branchType = model<string | null>(null);
+  private readonly clipboard = inject(Clipboard);
+
+  protected readonly branchType = model<string>('feat');
   protected readonly branchTypeOptions = Array.from(branchTypes.keys());
   protected readonly taskId = model<string>('');
   protected readonly taskName = model<string>('');
   protected readonly branchName = computed(() => {
-    return `${this.branchType() ?? ''}/${this.taskId()}-${this.taskName().toLowerCase().replace(/\s+/g, '-')}`
+    return `${this.branchType()}/${this.taskId()}-${this.taskName().toLowerCase().replace(/\s+/g, '-')}`
   });
+  protected readonly showToast = signal(false);
+
+  protected copyBranchName(): void {
+    this.clipboard.copy(this.branchName());
+    this.showToast.set(true);
+
+    setTimeout(() => {
+      this.showToast.set(false);
+    }, 2000);
+  }
 }
