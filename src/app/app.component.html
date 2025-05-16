@@ -7,21 +7,21 @@
 <main class="p-4 flex flex-col justify-center grow-1">
   <form #branchForm="ngForm">
     <div class="grid md:grid-cols-3 gap-4 mb-6">
-      <label class="select w-full">
-        <span class="label min-w-26">Branch type</span>
+      <label class="select select-lg ps-3 w-full">
+        <span class="label min-w-36">Branch type</span>
         <select [(ngModel)]="branchType" name="branchType" required>
           <option disabled selected [value]="null">Pick a branch type</option>
           @for(branchTypeOption of branchTypeOptions; track $index) {
-          <option>{{ branchTypeOption }}</option>
+            <option>{{ branchTypeOption }}</option>
           }
         </select>
       </label>
-      <label class="input w-full">
-        <span class="label min-w-26">Task Id</span>
+      <label class="input input-lg w-full">
+        <span class="label min-w-36">Task Id</span>
         <input type="text" required minlength="3" [(ngModel)]="taskId" name="taskId" placeholder="12345" />
       </label>
-      <label class="input w-full">
-        <span class="label min-w-26">Task Name</span>
+      <label class="input input-lg w-full">
+        <span class="label min-w-36">Task Name</span>
         <input type="text" required minlength="3" [(ngModel)]="taskName" name="taskName"
           placeholder="Implement responsive header navigation" />
       </label>
