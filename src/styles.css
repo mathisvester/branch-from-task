@@ -14,3 +14,6 @@
     }
 }
 
+.modal-box {
+    max-height: calc(100dvh - 4rem);
+}
