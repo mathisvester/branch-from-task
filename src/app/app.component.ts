@@ -1,4 +1,4 @@
-import { Component, computed, inject, linkedSignal, model, signal } from '@angular/core';
+import { Component, computed, inject, model, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { branchTypes } from './branch-types';
 import { Clipboard, ClipboardModule } from '@angular/cdk/clipboard';
@@ -18,22 +18,25 @@ export class AppComponent {
   protected readonly taskId = model<string>('');
   protected readonly taskName = model<string>('');
   protected readonly branchName = computed(() => {
-    if (!this.taskId().length && !this.taskName().length) {
+    const taskId = this.taskId();
+    const taskName = this.taskName();
+
+    if (!taskId.length && !taskName.length) {
       return '';
     }
 
     let branchName = `${this.branchType()}/`;
 
-    if (this.taskId().length > 0) {
-      branchName += this.taskId();
+    if (taskId.length > 0) {
+      branchName += taskId;
     }
 
-    if (this.taskId().length > 0 && this.taskName().length > 0) {
-      branchName += '-'
+    if (taskId.length > 0 && taskName.length > 0) {
+      branchName += '-';
     }
 
-    if (this.taskName().length > 0) {
-      branchName += this.taskName().toLowerCase().replace(/\s+/g, '-').replace(/:/g, '');
+    if (taskName.length > 0) {
+      branchName += taskName.toLowerCase().replace(/\s+/g, '-').replace(/:/g, '');
     }
 
     return branchName;
