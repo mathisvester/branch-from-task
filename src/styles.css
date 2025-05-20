@@ -1,19 +1,22 @@
 @import "tailwindcss";
 
 @plugin "daisyui" {
-    themes: light --default, dark --prefersdark, light;
+  themes:
+    light --default,
+    dark --prefersdark,
+    light;
 }
 
 ::placeholder {
-    color: color-mix(in oklab, #100f0f 50%, transparent);
+  color: color-mix(in oklab, #100f0f 50%, transparent);
 }
 
 @media (prefers-color-scheme: dark) {
-    ::placeholder {
-        color: color-mix(in oklab, #ecf9ff 50%, transparent);
-    }
+  ::placeholder {
+    color: color-mix(in oklab, #ecf9ff 50%, transparent);
+  }
 }
 
 .modal-box {
-    max-height: calc(100dvh - 4rem);
+  max-height: calc(100dvh - 4rem);
 }

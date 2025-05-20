@@ -1,10 +1,19 @@
 <div class="navbar bg-base-100 ps-4 shadow-sm justify-between gap-4">
   <span class="font-semibold text-xl">branch from task</span>
-  <a class="btn btn-link text-[var(--color-base-content)]" href="https://github.com/mathisvester/branch-from-task" target="_blank" rel="noopener" aria-label="Go to GitHub repository">
+  <a
+    class="btn btn-link text-[var(--color-base-content)]"
+    href="https://github.com/mathisvester/branch-from-task"
+    target="_blank"
+    rel="noopener"
+    aria-label="Go to GitHub repository"
+  >
     <svg viewBox="0 0 24 24" class="size-[1.6em]">
-      <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"
-        d="M12 2C6.477 2 2 6.463 2 11.97c0 4.404 2.865 8.14 6.839 9.458.5.092.682-.216.682-.48 0-.236-.008-.864-.013-1.695-2.782.602-3.369-1.337-3.369-1.337-.454-1.151-1.11-1.458-1.11-1.458-.908-.618.069-.606.069-.606 1.003.07 1.531 1.027 1.531 1.027.892 1.524 2.341 1.084 2.91.828.092-.643.35-1.083.636-1.332-2.22-.251-4.555-1.107-4.555-4.927 0-1.088.39-1.979 1.029-2.675-.103-.252-.446-1.266.098-2.638 0 0 .84-.268 2.75 1.022A9.607 9.607 0 0 1 12 6.82c.85.004 1.705.114 2.504.336 1.909-1.29 2.747-1.022 2.747-1.022.546 1.372.202 2.386.1 2.638.64.696 1.028 1.587 1.028 2.675 0 3.83-2.339 4.673-4.566 4.92.359.307.678.915.678 1.846 0 1.332-.012 2.407-.012 2.734 0 .267.18.577.688.48 3.97-1.32 6.833-5.054 6.833-9.458C22 6.463 17.522 2 12 2Z">
-      </path>
+      <path
+        fill="currentColor"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M12 2C6.477 2 2 6.463 2 11.97c0 4.404 2.865 8.14 6.839 9.458.5.092.682-.216.682-.48 0-.236-.008-.864-.013-1.695-2.782.602-3.369-1.337-3.369-1.337-.454-1.151-1.11-1.458-1.11-1.458-.908-.618.069-.606.069-.606 1.003.07 1.531 1.027 1.531 1.027.892 1.524 2.341 1.084 2.91.828.092-.643.35-1.083.636-1.332-2.22-.251-4.555-1.107-4.555-4.927 0-1.088.39-1.979 1.029-2.675-.103-.252-.446-1.266.098-2.638 0 0 .84-.268 2.75 1.022A9.607 9.607 0 0 1 12 6.82c.85.004 1.705.114 2.504.336 1.909-1.29 2.747-1.022 2.747-1.022.546 1.372.202 2.386.1 2.638.64.696 1.028 1.587 1.028 2.675 0 3.83-2.339 4.673-4.566 4.92.359.307.678.915.678 1.846 0 1.332-.012 2.407-.012 2.734 0 .267.18.577.688.48 3.97-1.32 6.833-5.054 6.833-9.458C22 6.463 17.522 2 12 2Z"
+      ></path>
     </svg>
   </a>
 </div>
@@ -14,61 +23,131 @@
     <div>
       <label class="label flex gap-2 mb-2 text-sm" for="branchType">
         Branch Type
-        <button class="btn-ghost cursor-pointer" onclick="modal_branch_types.showModal()" aria-label="Open modal">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-            stroke="currentColor" class="size-5">
-            <path stroke-linecap="round" stroke-linejoin="round"
-              d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+        <button
+          class="btn-ghost cursor-pointer"
+          onclick="modal_branch_types.showModal()"
+          aria-label="Open modal"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-5"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"
+            />
           </svg>
         </button>
       </label>
-      <select class="select select-lg ps-3 w-full" [(ngModel)]="branchType" id="branchType" name="branchType" required>
+      <select
+        class="select select-lg ps-3 w-full"
+        [(ngModel)]="branchType"
+        id="branchType"
+        name="branchType"
+        required
+      >
         <option disabled selected [value]="null">Pick a Branch Type</option>
-        @for(branchTypeOption of branchTypeOptions; track $index) {
+        @for (branchTypeOption of branchTypeOptions; track $index) {
           <option>{{ branchTypeOption }}</option>
         }
       </select>
     </div>
     <div>
       <label class="label block mb-2 text-sm" for="taskId">Task ID</label>
-      <input class="input input-lg w-full" type="text" [(ngModel)]="taskId" id="taskId" name="taskId"
-        placeholder="12345" />
+      <input
+        class="input input-lg w-full"
+        type="text"
+        [(ngModel)]="taskId"
+        id="taskId"
+        name="taskId"
+        placeholder="12345"
+      />
     </div>
     <div>
       <label class="label block mb-2 text-sm" for="taskName">Task Name</label>
-      <input class="input input-lg w-full" type="text" [(ngModel)]="taskName" id="taskName" name="taskName"
-        placeholder="Implement responsive header navigation" />
+      <input
+        class="input input-lg w-full"
+        type="text"
+        [(ngModel)]="taskName"
+        id="taskName"
+        name="taskName"
+        placeholder="Implement responsive header navigation"
+      />
     </div>
     <div class="mt-4">
-      <label class="label block mb-2 text-sm" for="branchName">Generated Branch Name</label>
+      <label class="label block mb-2 text-sm" for="branchName"
+        >Generated Branch Name</label
+      >
       <div class="flex gap-2">
-        <input class="input input-lg w-full" type="text" disabled minlength="3" [ngModel]="branchName()" id="branchName" name="branchName" placeholder="feat/12345-implement-responsive-header-navigation" />
-        <button class="btn btn-square btn-lg btn-primary" [disabled]="branchName().length === 0" (click)="copyBranchName()" aria-label="Copy branch name">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-          class="size-[1.2em] shrink-0">
-          <path stroke-linecap="round" stroke-linejoin="round"
-            d="M15.666 3.888A2.25 2.25 0 0 0 13.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 0 1-.75.75H9a.75.75 0 0 1-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 2.25 0 0 1 4.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 0 1 1.927-.184" />
-        </svg>
-      </button>
+        <input
+          class="input input-lg w-full"
+          type="text"
+          disabled
+          minlength="3"
+          [ngModel]="branchName()"
+          id="branchName"
+          name="branchName"
+          placeholder="feat/12345-implement-responsive-header-navigation"
+        />
+        <button
+          class="btn btn-square btn-lg btn-primary"
+          [disabled]="branchName().length === 0"
+          (click)="copyBranchName()"
+          aria-label="Copy branch name"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-[1.2em] shrink-0"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15.666 3.888A2.25 2.25 0 0 0 13.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 0 1-.75.75H9a.75.75 0 0 1-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 2.25 0 0 1 4.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 0 1 1.927-.184"
+            />
+          </svg>
+        </button>
       </div>
     </div>
   </form>
 
   @if (showToast()) {
-  <div class="toast toast-end">
-    <div class="alert alert-success">
-      <span>Branch name copied!</span>
+    <div class="toast toast-end">
+      <div class="alert alert-success">
+        <span>Branch name copied!</span>
+      </div>
     </div>
-  </div>
   }
 
   <dialog id="modal_branch_types" class="modal">
     <div class="modal-box">
       <form method="dialog">
-        <button class="btn btn-sm btn-circle btn-ghost absolute right-3 top-3" aria-label="Close">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-[1.6em]">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-          </svg>          
+        <button
+          class="btn btn-sm btn-circle btn-ghost absolute right-3 top-3"
+          aria-label="Close"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-[1.6em]"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18 18 6M6 6l12 12"
+            />
+          </svg>
         </button>
       </form>
       <app-branch-types />
