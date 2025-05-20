@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { branchTypes } from '../branch-types';
+import { branchTypes } from '../shared/branch-types';
 
 @Component({
   selector: 'app-branch-types',
