@@ -1,4 +1,4 @@
-import { Component, computed, inject, model, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, model, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { branchTypes } from './branch-types';
 import { Clipboard, ClipboardModule } from '@angular/cdk/clipboard';
@@ -8,7 +8,8 @@ import { BranchTypesComponent } from "./branch-types/branch-types.component";
   selector: 'app-root',
   imports: [FormsModule, ClipboardModule, BranchTypesComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
   private readonly clipboard = inject(Clipboard);
