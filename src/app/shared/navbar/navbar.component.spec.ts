@@ -16,7 +16,7 @@ describe('NavbarComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it(`should render the 'branch-from-task' title`, async () => {
+  it(`should render the 'branch from task' title`, async () => {
     const fixture = TestBed.createComponent(NavbarComponent);
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
