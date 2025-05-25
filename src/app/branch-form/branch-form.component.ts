@@ -12,6 +12,7 @@ import { ToastComponent } from '../shared/toast/toast.component';
 import { Clipboard, ClipboardModule } from '@angular/cdk/clipboard';
 import { ModalComponent } from '../shared/modal/modal.component';
 import { BranchTypesComponent } from '../branch-types/branch-types.component';
+import slug from 'slug';
 
 @Component({
   selector: 'app-branch-form',
@@ -46,7 +47,7 @@ export class BranchFormComponent {
     let branchName = `${this.branchType()}/`;
 
     if (taskId.length > 0) {
-      branchName += taskId;
+      branchName += slug(taskId, { lower: false });
     }
 
     if (taskId.length > 0 && taskName.length > 0) {
@@ -54,10 +55,7 @@ export class BranchFormComponent {
     }
 
     if (taskName.length > 0) {
-      branchName += taskName
-        .toLowerCase()
-        .replace(/\s+/g, '-')
-        .replace(/:/g, '');
+      branchName += slug(taskName);
     }
 
     return branchName;
