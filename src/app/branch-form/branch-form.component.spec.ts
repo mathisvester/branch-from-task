@@ -1,7 +1,7 @@
 import { provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { BranchFormComponent } from './branch-form.component';
 import { render, screen } from '@testing-library/angular';
-import { userEvent, UserEvent } from '@testing-library/user-event';
+import { userEvent } from '@testing-library/user-event';
 
 async function setup() {
   const user = userEvent.setup();
