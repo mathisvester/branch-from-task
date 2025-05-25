@@ -81,6 +81,7 @@
                 "input": "public"
               }
             ],
+            "main": "src/test.ts",
             "styles": ["src/styles.css"],
             "scripts": []
           }
