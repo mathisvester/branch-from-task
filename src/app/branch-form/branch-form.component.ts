@@ -47,7 +47,7 @@ export class BranchFormComponent {
     let branchName = `${this.branchType()}/`;
 
     if (taskId.length > 0) {
-      branchName += slug(taskId, { lower: false });
+      branchName += slug(taskId, { locale: 'de', lower: false });
     }
 
     if (taskId.length > 0 && taskName.length > 0) {
@@ -55,7 +55,7 @@ export class BranchFormComponent {
     }
 
     if (taskName.length > 0) {
-      branchName += slug(taskName);
+      branchName += slug(taskName, { locale: 'de' });
     }
 
     return branchName;
